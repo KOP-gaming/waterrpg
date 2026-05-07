@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfnivh4mak235"]
+[gd_scene load_steps=7 format=3 uid="uid://cfnivh4mak235"]
 
+[ext_resource type="Script" uid="uid://cyjp1w1j013bo" path="res://scenes/dungeonmenu.gd" id="1_0wj4k"]
 [ext_resource type="Script" uid="uid://d30qiaclffmss" path="res://scenes/player.gd" id="2_fpimf"]
 [ext_resource type="Texture2D" uid="uid://6mvyk8suvyey" path="res://assets/sprites/dean.png" id="3_0wj4k"]
 [ext_resource type="Texture2D" uid="uid://edr14o03xnf0" path="res://assets/tilemaps/tilemap1.png" id="test"]
@@ -137,6 +138,7 @@ texture = ExtResource("test")
 sources/0 = SubResource("TileSetAtlasSource_0")
 
 [node name="dungeon" type="Node2D"]
+script = ExtResource("1_0wj4k")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0")
@@ -175,3 +177,5 @@ polygon = PackedVector2Array(5, -4, 6, -2, 6, 1, 5, 2, 4, 4, 3, 5, 2, 6, 1, 6, 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls"]
 build_mode = 1
 polygon = PackedVector2Array(80, 256, 0, 256, 0, -64, -64, -64, -64, -208, 128, -208, 128, -64, 64, -64, 64, 32, 224, 32, 224, -96, 192, -96, 192, -64, 144, -64, 144, -160, 192, -160, 192, -128, 224, -128, 224, -288, 160, -288, 160, -416, 496, -416, 496, -288, 288, -288, 288, -192, 384, -192, 384, -112, 496, -112, 496, -48, 352, -48, 352, -144, 288, -144, 288, 32, 304, 32, 304, 0, 400, 0, 400, 96, 304, 96, 304, 80, 288, 80, 288, 144, 336, 144, 336, 112, 464, 112, 464, 240, 336, 240, 336, 192, 288, 192, 288, 256, 480, 256, 480, 352, 224, 352, 224, 80, 64, 80, 64, 160, 96, 160, 96, 144, 192, 144, 192, 224, 96, 224, 96, 208, 80, 208)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

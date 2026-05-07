@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgyhtet5ejcqj"]
+
+[ext_resource type="Script" uid="uid://dj63xm7t8gdd2" path="res://menu.gd" id="1_lti8b"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-20, 15)
+zoom = Vector2(4, 4)
+metadata/_edit_group_ = true
+
+[node name="Delete" type="Button" parent="Camera2D"]
+offset_left = -135.0
+offset_top = 35.0
+offset_right = -46.0
+offset_bottom = 66.0
+text = "Delete"
+
+[node name="quit" type="Button" parent="Camera2D"]
+offset_left = 39.0
+offset_top = 26.0
+offset_right = 130.0
+offset_bottom = 57.0
+text = "quit"
+
+[node name="resume" type="Button" parent="Camera2D"]
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.035
+offset_left = -52.0
+offset_top = -23.0
+offset_right = 20.568
+offset_bottom = 8.0
+text = "resume"
+
+[node name="load" type="Button" parent="Camera2D"]
+offset_left = 30.0
+offset_top = -71.0
+offset_right = 121.0
+offset_bottom = -40.0
+text = "load"
+
+[node name="save" type="Button" parent="Camera2D"]
+offset_left = -132.0
+offset_top = -74.0
+offset_right = -44.0
+offset_bottom = -43.0
+text = "save"
+
+[connection signal="pressed" from="Camera2D/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Camera2D/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Camera2D/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Camera2D/save" to="." method="_on_save_pressed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=4 uid="uid://dowyyyfmtilwo"]
+[gd_scene load_steps=31 format=4 uid="uid://dowyyyfmtilwo"]
 
+[ext_resource type="Script" uid="uid://b3vp531l6dwtg" path="res://scenes/homemenu.gd" id="1_mahjx"]
 [ext_resource type="Script" uid="uid://d30qiaclffmss" path="res://scenes/player.gd" id="2_w18ys"]
 [ext_resource type="Texture2D" uid="uid://6mvyk8suvyey" path="res://assets/sprites/dean.png" id="3_reixx"]
 [ext_resource type="Texture2D" uid="uid://cfescbv4amdsr" path="res://assets/sprites/spritesheet.png" id="4_reixx"]
@@ -192,6 +193,7 @@ size = Vector2(20, 48)
 size = Vector2(14, 47)
 
 [node name="home" type="Node2D"]
+script = ExtResource("1_mahjx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0")
@@ -318,3 +320,5 @@ script = ExtResource("6_yxilm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="savehouse"]
 position = Vector2(248, 151.5)
 shape = SubResource("RectangleShape2D_mahjx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

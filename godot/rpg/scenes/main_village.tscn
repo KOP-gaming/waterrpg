@@ -174,3 +174,5 @@ script = ExtResource("6_nrmjs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="savevillage"]
 position = Vector2(392.125, -116)
 shape = SubResource("RectangleShape2D_s2fhb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
