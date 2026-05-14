@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpvf2qclcshk3"]
+[gd_scene load_steps=20 format=3 uid="uid://dpvf2qclcshk3"]
 
-[ext_resource type="Script" uid="uid://cpah2whe7q60l" path="res://scenes/main_village.gd" id="1_060qw"]
+[ext_resource type="Script" uid="uid://cpah2whe7q60l" path="res://code/main_village.gd" id="1_060qw"]
 [ext_resource type="Texture2D" uid="uid://edr14o03xnf0" path="res://assets/tilemaps/tilemap1.png" id="1_o587c"]
-[ext_resource type="Script" uid="uid://d30qiaclffmss" path="res://scenes/player.gd" id="2_060qw"]
+[ext_resource type="Script" uid="uid://d30qiaclffmss" path="res://code/player.gd" id="2_060qw"]
 [ext_resource type="Texture2D" uid="uid://6mvyk8suvyey" path="res://assets/sprites/dean.png" id="3_nrmjs"]
-[ext_resource type="Script" uid="uid://doidwxqdgeiyt" path="res://scenes/home.gd" id="4_s2fhb"]
-[ext_resource type="Script" uid="uid://dl4jkl8jfaxrf" path="res://scenes/savevillage.gd" id="6_nrmjs"]
+[ext_resource type="Script" uid="uid://doidwxqdgeiyt" path="res://code/home.gd" id="4_s2fhb"]
+[ext_resource type="Texture2D" uid="uid://cfescbv4amdsr" path="res://assets/sprites/spritesheet.png" id="5_s2fhb"]
+[ext_resource type="Script" uid="uid://dl4jkl8jfaxrf" path="res://code/savevillage.gd" id="6_nrmjs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("1_o587c")
@@ -92,6 +93,16 @@ b = Vector2(-111, 255)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7ffu7"]
 b = Vector2(0, 513)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_na2db"]
+atlas = ExtResource("5_s2fhb")
+region = Rect2(48, 0, 64, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na2db"]
+size = Vector2(41, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kxd8"]
+size = Vector2(41, 96)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2fhb"]
 size = Vector2(80.25, 20)
 
@@ -159,6 +170,42 @@ position = Vector2(800, -255)
 shape = SubResource("SegmentShape2D_7ffu7")
 
 [node name="props" type="StaticBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="props"]
+offset_left = 92.0
+offset_top = 63.0
+offset_right = 156.0
+offset_bottom = 111.0
+texture = SubResource("AtlasTexture_na2db")
+
+[node name="TextureRect2" type="TextureRect" parent="props"]
+offset_left = 92.0
+offset_top = 111.0
+offset_right = 156.0
+offset_bottom = 159.0
+texture = SubResource("AtlasTexture_na2db")
+
+[node name="TextureRect3" type="TextureRect" parent="props"]
+offset_left = 181.0
+offset_top = 63.0
+offset_right = 245.0
+offset_bottom = 111.0
+texture = SubResource("AtlasTexture_na2db")
+
+[node name="TextureRect4" type="TextureRect" parent="props"]
+offset_left = 181.0
+offset_top = 111.0
+offset_right = 245.0
+offset_bottom = 159.0
+texture = SubResource("AtlasTexture_na2db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="props"]
+position = Vector2(124.5, 111)
+shape = SubResource("RectangleShape2D_na2db")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="props"]
+position = Vector2(213.5, 111)
+shape = SubResource("RectangleShape2D_0kxd8")
 
 [node name="home" type="Area2D" parent="."]
 collision_layer = 128
