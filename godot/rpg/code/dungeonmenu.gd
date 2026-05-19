@@ -3,11 +3,18 @@ extends Node2D
 var main_menu = preload("res://scenes/menu.tscn")
 var battle = preload("res://scenes/battles/battle1.tscn")
 
+
 @onready var ui_layer = $CanvasLayer
 @onready var battletest = $Battletester
+
 func _ready():
+	get_tree().paused = true
+	await get_tree().create_timer(0.5).timeout
+	get_tree().paused = false
 	apply_battle_state()
 	$AnimationPlayer.play("enemy1walkcycle")
+	
+	
 
 func apply_battle_state():
 	var battles = SaveLoad.Contents_To_Save.get("battles", {})
@@ -15,6 +22,7 @@ func apply_battle_state():
 	if battles.get("battletest", true) == false:
 		battletest.monitoring = false
 		battletest.visible = false
+
 
 
 func _input(event):
@@ -44,3 +52,13 @@ func _on_battletester_body_entered(body: Node2D) -> void:
 func disable_battle_trigger():
 	battletest.monitoring = false
 	battletest.visible = false
+
+
+func _on_backtovillage_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().change_scene_to_file("res://scenes/main_village.tscn")
+
+
+func _on_saveme_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		SaveLoad.save_player_position(body)

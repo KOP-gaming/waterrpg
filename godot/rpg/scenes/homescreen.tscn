@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dd1evbu44uaas"]
 
-[ext_resource type="Script" uid="uid://bsb0rka32jw7c" path="res://scenes/homescreen.gd" id="1_yl18i"]
+[ext_resource type="Script" uid="uid://bsb0rka32jw7c" path="res://code/homescreen.gd" id="1_yl18i"]
 
 [node name="homescreen" type="Control"]
 layout_mode = 3

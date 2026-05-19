@@ -53,21 +53,26 @@ func display_text(text):
 
 
 func _on_run_pressed() -> void:
-	$ActionsPanel.hide()
-	display_text("Got away safely")
-	await self.textbox_closed
-	get_tree().quit()
+	if 90 >= randi_range(0, 100):
+		$ActionsPanel.hide()
+		display_text("Got away safely.")
+		await self.textbox_closed
+		get_tree().paused = false
+		queue_free()
+	else:
+		display_text("You try to  run but your legs refuse to move.")
+		enemy_turn()
 
 
 func _on_defend_pressed() -> void:
 	if randi_range(0,100) < State.defence:
 		is_defending = true
 		$ActionsPanel.hide()
-		display_text("you put on the correct PPE")
+		display_text("you put on the correct PPE.")
 		await self.textbox_closed
 		await get_tree().create_timer(0.5).timeout
 	else:
-		display_text("your PPE wasn't cleaned properly")
+		display_text("your PPE wasn't cleaned properly...")
 		await self.textbox_closed
 		await get_tree().create_timer(0.5).timeout
 	enemy_turn()
@@ -83,7 +88,7 @@ func enemy_turn():
 		$AnimationPlayer.play("player_defending")
 		await $AnimationPlayer.animation_finished
 		$ActionsPanel.hide()
-		display_text("your PPE held")
+		display_text("your PPE held.")
 		await self.textbox_closed
 	else:
 		curent_player_health = max(0,curent_player_health - randi_range(enemy.DamageMin, enemy.DamageMax))
@@ -101,12 +106,11 @@ func enemy_turn():
 		get_tree().paused = false
 		queue_free()
 	$ActionsPanel.show()
-	
 
 
 func _on_attack_pressed() -> void:
 	$ActionsPanel.hide()
-	display_text("you wipe the surface clean")
+	display_text("you wipe the surface clean.")
 	await self.textbox_closed
 	
 	current_enemy_health = max(0,current_enemy_health - randi_range(State.MinDamage, State.MaxDamage))
@@ -116,7 +120,7 @@ func _on_attack_pressed() -> void:
 	await $AnimationPlayer.animation_finished
 	
 	if current_enemy_health == 0:
-		display_text("you defeated %s" % enemy.name)
+		display_text("you defeated %s." % enemy.name)
 		await self.textbox_closed
 		
 		$AnimationPlayer.play("enemy_ded")

@@ -193,7 +193,7 @@ size = Vector2(20, 48)
 size = Vector2(14, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fycn"]
-size = Vector2(63, 20)
+size = Vector2(79, 52)
 
 [node name="home" type="Node2D" groups=["testbattle"]]
 script = ExtResource("1_mahjx")
@@ -324,14 +324,14 @@ script = ExtResource("6_yxilm")
 position = Vector2(248, 151.5)
 shape = SubResource("RectangleShape2D_mahjx")
 
-[node name="Battletester" type="Area2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="healme" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Battletester"]
-position = Vector2(47.5, 55)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="healme"]
+position = Vector2(120.5, 27)
 shape = SubResource("RectangleShape2D_4fycn")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[connection signal="body_entered" from="Battletester" to="." method="_on_battletester_body_entered"]
+[connection signal="body_entered" from="healme" to="." method="_on_healme_body_entered"]

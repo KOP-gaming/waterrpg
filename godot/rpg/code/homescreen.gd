@@ -23,7 +23,7 @@ func _on_new_game_pressed() -> void:
 		"lastscene": "res://scenes/home.tscn"
 	}
 	
-	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	get_tree().change_scene_to_file("res://scenes/backstory.tscn")
 
 
 func _on_resume_pressed() -> void:

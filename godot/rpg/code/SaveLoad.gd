@@ -6,7 +6,7 @@ var Contents_To_Save : Dictionary = {
 	"scene_positions": {
 		"res://scenes/home.tscn": Vector2(117, 13),
 		"res://scenes/main_village.tscn": Vector2(394, -115),
-		"res://scenes/dungeon.tscn": Vector2(59.0, 244.0)
+		"res://scenes/dungeon.tscn": Vector2(45.0, 238.0)
 	},
 	"battles":{
 		"battletest": true

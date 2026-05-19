@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpvf2qclcshk3"]
+[gd_scene load_steps=26 format=3 uid="uid://dpvf2qclcshk3"]
 
 [ext_resource type="Script" uid="uid://cpah2whe7q60l" path="res://code/main_village.gd" id="1_060qw"]
 [ext_resource type="Texture2D" uid="uid://edr14o03xnf0" path="res://assets/tilemaps/tilemap1.png" id="1_o587c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://doidwxqdgeiyt" path="res://code/home.gd" id="4_s2fhb"]
 [ext_resource type="Texture2D" uid="uid://cfescbv4amdsr" path="res://assets/sprites/spritesheet.png" id="5_s2fhb"]
 [ext_resource type="Script" uid="uid://dl4jkl8jfaxrf" path="res://code/savevillage.gd" id="6_nrmjs"]
+[ext_resource type="Script" uid="uid://dxgy7dbhcnqyq" path="res://code/dungeon.gd" id="8_na2db"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("1_o587c")
@@ -103,8 +104,23 @@ size = Vector2(41, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kxd8"]
 size = Vector2(41, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaum7"]
+size = Vector2(80, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjolt"]
+size = Vector2(5.00002, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i08d"]
+size = Vector2(4, 39)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2fhb"]
 size = Vector2(80.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt3qa"]
+size = Vector2(38, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2rrq"]
+size = Vector2(40, 3.06659)
 
 [node name="main village" type="Node2D"]
 script = ExtResource("1_060qw")
@@ -137,6 +153,9 @@ polygon = PackedVector2Array(5, -4, 6, -2, 6, 1, 5, 2, 4, 4, 3, 5, 2, 6, 1, 6, 0
 
 [node name="walls" type="StaticBody2D" parent="."]
 
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="walls"]
+polygon = PackedVector2Array(352, -256, 352, -145, 432, -145, 432, -208, 480, -208, 480, -256)
+
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
 shape = SubResource("SegmentShape2D_3lryy")
 
@@ -159,7 +178,7 @@ shape = SubResource("RectangleShape2D_pecmg")
 polygon = PackedVector2Array(352, -145, 352, -145, 352, -145, 432, -145, 432, -208, 480, -208, 480, -256, 352, -256)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="walls"]
-polygon = PackedVector2Array(301, 119, 302, 119, 302, 118, 303, 118, 303, 117, 304, 117, 304, 116, 305, 116, 305, 115, 306, 115, 306, 114, 307, 114, 307, 113, 308, 113, 308, 112, 309, 112, 309, 111, 310, 111, 310, 110, 311, 110, 311, 109, 312, 109, 312, 108, 313, 108, 313, 107, 314, 107, 314, 106, 326, 106, 326, 107, 327, 107, 327, 108, 328, 108, 328, 109, 329, 109, 329, 110, 330, 110, 330, 111, 331, 111, 331, 112, 332, 112, 332, 113, 333, 113, 333, 114, 334, 114, 334, 115, 335, 115, 335, 116, 336, 116, 336, 117, 337, 117, 337, 118, 338, 118, 338, 119, 339, 119, 339, 131, 338, 131, 338, 132, 337, 132, 337, 133, 336, 133, 336, 134, 335, 134, 335, 135, 334, 135, 334, 136, 333, 136, 333, 137, 332, 137, 332, 138, 331, 138, 331, 139, 330, 139, 330, 140, 329, 140, 329, 141, 328, 141, 328, 142, 327, 142, 327, 143, 326, 143, 326, 144, 314, 144, 314, 143, 313, 143, 313, 142, 312, 142, 312, 141, 311, 141, 311, 140, 310, 140, 310, 139, 309, 139, 309, 138, 308, 138, 308, 137, 307, 137, 307, 136, 306, 136, 306, 135, 305, 135, 305, 134, 304, 134, 304, 133, 303, 133, 303, 132, 302, 132, 302, 131, 301, 131)
+polygon = PackedVector2Array(302, 120, 302, 119, 303, 119, 303, 118, 304, 118, 304, 117, 305, 117, 305, 116, 306, 116, 306, 115, 307, 115, 307, 114, 308, 114, 308, 113, 309, 113, 309, 112, 310, 112, 310, 111, 311, 111, 311, 110, 312, 110, 312, 109, 313, 109, 313, 108, 314, 108, 314, 107, 314, 107, 325, 107, 326, 107, 326, 108, 327, 108, 327, 109, 328, 109, 328, 110, 329, 110, 329, 111, 330, 111, 330, 112, 331, 112, 331, 113, 332, 113, 332, 114, 333, 114, 333, 115, 334, 115, 334, 116, 335, 116, 335, 117, 336, 117, 336, 118, 337, 118, 337, 119, 338, 119, 338, 120, 338, 130, 338, 131, 337, 131, 337, 132, 336, 132, 336, 133, 335, 133, 335, 134, 334, 134, 334, 135, 333, 135, 333, 136, 332, 136, 332, 137, 331, 137, 331, 138, 330, 138, 330, 139, 329, 139, 329, 140, 328, 140, 328, 141, 327, 141, 327, 142, 326, 142, 326, 143, 325, 143, 315, 143, 314, 143, 314, 142, 313, 142, 313, 141, 312, 141, 312, 140, 311, 140, 311, 139, 310, 139, 310, 138, 309, 138, 309, 137, 308, 137, 308, 136, 307, 136, 307, 135, 306, 135, 306, 134, 305, 134, 305, 133, 304, 133, 304, 132, 303, 132, 303, 131, 302, 131, 302, 130)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
 position = Vector2(11, 1)
@@ -212,14 +231,37 @@ collision_layer = 128
 collision_mask = 128
 script = ExtResource("4_s2fhb")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="home"]
-polygon = PackedVector2Array(352, -256, 352, -128, 432, -128, 432, -208, 480, -208, 480, -256)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="home"]
+position = Vector2(392, -136.5)
+shape = SubResource("RectangleShape2D_qaum7")
 
 [node name="savevillage" type="Area2D" parent="."]
 script = ExtResource("6_nrmjs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="savevillage"]
+position = Vector2(297.5, 125.5)
+shape = SubResource("RectangleShape2D_bjolt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="savevillage"]
+position = Vector2(343, 124.5)
+shape = SubResource("RectangleShape2D_8i08d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="savevillage"]
 position = Vector2(392.125, -116)
 shape = SubResource("RectangleShape2D_s2fhb")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="savevillage"]
+position = Vector2(320, 103)
+shape = SubResource("RectangleShape2D_kt3qa")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="savevillage"]
+position = Vector2(321, 147.533)
+shape = SubResource("RectangleShape2D_y2rrq")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="dungeon" type="Area2D" parent="."]
+script = ExtResource("8_na2db")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dungeon"]
+polygon = PackedVector2Array(314, 106, 326, 106, 326, 107, 327, 107, 327, 108, 328, 108, 328, 109, 329, 109, 329, 110, 330, 110, 330, 111, 331, 111, 331, 112, 332, 112, 332, 113, 333, 113, 333, 114, 334, 114, 334, 115, 335, 115, 335, 116, 336, 116, 336, 117, 337, 117, 337, 118, 338, 118, 338, 119, 339, 119, 339, 131, 338, 131, 338, 132, 337, 132, 337, 133, 336, 133, 336, 134, 335, 134, 335, 135, 334, 135, 334, 136, 333, 136, 333, 137, 332, 137, 332, 138, 331, 138, 331, 138, 331, 139, 330, 139, 330, 140, 329, 140, 329, 141, 328, 141, 328, 142, 327, 142, 327, 143, 326, 143, 326, 144, 314, 144, 314, 143, 313, 143, 313, 142, 312, 142, 312, 141, 311, 141, 311, 140, 310, 140, 310, 139, 309, 139, 309, 138, 308, 138, 308, 137, 307, 137, 307, 136, 306, 136, 306, 135, 305, 135, 305, 134, 304, 134, 304, 133, 303, 133, 303, 132, 302, 132, 302, 131, 301, 131, 301, 119, 302, 119, 302, 118, 303, 118, 303, 117, 304, 117, 304, 116, 305, 116, 305, 115, 306, 115, 306, 114, 307, 114, 307, 113, 308, 113, 308, 112, 309, 112, 309, 111, 310, 111, 310, 110, 311, 110, 311, 109, 312, 109, 312, 108, 313, 108, 313, 107, 314, 107)
