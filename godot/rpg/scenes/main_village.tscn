@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dpvf2qclcshk3"]
+[gd_scene load_steps=27 format=3 uid="uid://dpvf2qclcshk3"]
 
 [ext_resource type="Script" uid="uid://cpah2whe7q60l" path="res://code/main_village.gd" id="1_060qw"]
 [ext_resource type="Texture2D" uid="uid://edr14o03xnf0" path="res://assets/tilemaps/tilemap1.png" id="1_o587c"]
@@ -72,6 +72,9 @@ texture = ExtResource("1_o587c")
 
 [sub_resource type="TileSet" id="TileSet_0"]
 sources/0 = SubResource("TileSetAtlasSource_0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na2db"]
+radius = 11.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3lryy"]
 a = Vector2(-101, 255)
@@ -150,6 +153,14 @@ zoom = Vector2(4, 4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
 polygon = PackedVector2Array(5, -4, 6, -2, 6, 1, 5, 2, 4, 4, 3, 5, 2, 6, 1, 6, 0, 7, -4, 7, -7, 6, -9, 4, -10, 3, -10, 2, -11, 1, -11, -2, -10, -3, -9, -5, -8, -6, -7, -7, -5, -8, -1, -8, 2, -7)
+
+[node name="PickupZone" type="Area2D" parent="player"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/PickupZone"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_na2db")
 
 [node name="walls" type="StaticBody2D" parent="."]
 

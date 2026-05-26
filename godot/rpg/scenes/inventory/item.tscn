@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpiw4ctuyqrh"]
+
+[ext_resource type="Script" uid="uid://cmqfvnetpvid0" path="res://item.gd" id="1_jg50s"]
+[ext_resource type="Texture2D" uid="uid://bfxyks4xr0sny" path="res://assets/sprites/items/apple.png" id="2_mwv5g"]
+[ext_resource type="FontFile" uid="uid://bylbrm4ar8fwf" path="res://assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="3_fbsum"]
+
+[node name="item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_jg50s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 21.0
+offset_bottom = 19.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_mwv5g")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 29.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("3_fbsum")
+theme_override_font_sizes/font_size = 12
+text = "99"

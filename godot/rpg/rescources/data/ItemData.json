@@ -1,0 +1,13 @@
+{
+	"apple": {
+		"ItemCatagory": "consumable",
+		"AddHealth": 5,
+		"StackSize": 99,
+		"Description": "A healthy meal for on the road."
+	},
+	"wellshit": {
+		"ItemCatagory": "rescource",
+		"StackSize": 99,
+		"Description": "A piece of bacteria that can be used for research."
+	}
+}

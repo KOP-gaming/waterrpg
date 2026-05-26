@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfnivh4mak235"]
+[gd_scene load_steps=18 format=3 uid="uid://cfnivh4mak235"]
 
 [ext_resource type="Script" uid="uid://cyjp1w1j013bo" path="res://code/dungeonmenu.gd" id="1_0wj4k"]
 [ext_resource type="Script" uid="uid://d30qiaclffmss" path="res://code/player.gd" id="2_fpimf"]
 [ext_resource type="Texture2D" uid="uid://6mvyk8suvyey" path="res://assets/sprites/dean.png" id="3_0wj4k"]
 [ext_resource type="Texture2D" uid="uid://cfescbv4amdsr" path="res://assets/sprites/spritesheet.png" id="5_fvacq"]
+[ext_resource type="PackedScene" uid="uid://dcij2gg1wff0u" path="res://scenes/drops/shittydrops.tscn" id="6_ys5p8"]
+[ext_resource type="PackedScene" uid="uid://c7sjbvoinlofp" path="res://item_drop.tscn" id="7_hsn05"]
 [ext_resource type="Texture2D" uid="uid://edr14o03xnf0" path="res://assets/tilemaps/tilemap1.png" id="test"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
@@ -138,6 +140,9 @@ texture = ExtResource("test")
 [sub_resource type="TileSet" id="TileSet_0"]
 sources/0 = SubResource("TileSetAtlasSource_0")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ys5p8"]
+radius = 11.0
+
 [sub_resource type="Animation" id="Animation_etlrv"]
 length = 0.001
 tracks/0/type = "value"
@@ -224,6 +229,14 @@ zoom = Vector2(6, 6)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
 polygon = PackedVector2Array(5, -4, 6, -2, 6, 1, 5, 2, 4, 4, 3, 5, 2, 6, 1, 6, 0, 7, -4, 7, -7, 6, -9, 4, -10, 3, -10, 2, -11, 1, -11, -2, -10, -3, -9, -5, -8, -6, -7, -7, -5, -8, -1, -8, 2, -7)
 
+[node name="PickupZone" type="Area2D" parent="player"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/PickupZone"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_ys5p8")
+
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls"]
@@ -266,6 +279,15 @@ shape = SubResource("RectangleShape2D_fvacq")
 position = Vector2(40, 237)
 shape = SubResource("RectangleShape2D_ys5p8")
 
+[node name="shittydrops" parent="." instance=ExtResource("6_ys5p8")]
+visible = false
+position = Vector2(145, 182)
+
+[node name="ItemDrop" parent="." instance=ExtResource("7_hsn05")]
+position = Vector2(34, 192)
+
+[connection signal="body_entered" from="player/PickupZone" to="player" method="_on_pickup_zone_body_entered"]
+[connection signal="body_exited" from="player/PickupZone" to="player" method="_on_pickup_zone_body_exited"]
 [connection signal="body_entered" from="Battletester" to="." method="_on_battletester_body_entered"]
 [connection signal="body_entered" from="backtovillage" to="." method="_on_backtovillage_body_entered"]
 [connection signal="body_entered" from="saveme" to="." method="_on_saveme_body_entered"]

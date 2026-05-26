@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7sjbvoinlofp"]
+
+[ext_resource type="Script" uid="uid://cjsa3qwqebx8x" path="res://item_drop.gd" id="1_an6nj"]
+[ext_resource type="Texture2D" uid="uid://bfxyks4xr0sny" path="res://assets/sprites/items/apple.png" id="1_nhhfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an6nj"]
+size = Vector2(8, 10)
+
+[node name="ItemDrop" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_an6nj")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.250003, 0.250003)
+scale = Vector2(0.566667, 0.566667)
+texture = ExtResource("1_nhhfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.250003, 0.250003)
+shape = SubResource("RectangleShape2D_an6nj")

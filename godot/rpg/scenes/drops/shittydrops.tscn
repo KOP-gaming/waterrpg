@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcij2gg1wff0u"]
+
+[ext_resource type="Script" uid="uid://bmcyww6j0kjel" path="res://scenes/drops/shittydrops.gd" id="1_pl27v"]
+[ext_resource type="Texture2D" uid="uid://ddh02p0qaa81v" path="res://assets/sprites/items/wellshit.png" id="2_3ke8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an6nj"]
+size = Vector2(8, 10)
+
+[node name="shittydrops" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_pl27v")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.250003, 0.250003)
+scale = Vector2(0.566667, 0.566667)
+texture = ExtResource("2_3ke8i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.250003, 0.250003)
+shape = SubResource("RectangleShape2D_an6nj")

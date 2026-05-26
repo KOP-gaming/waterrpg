@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bbanygq6d56cd"]
 
 [ext_resource type="Script" uid="uid://b7uob63cst0bh" path="res://code/battles/battle_1.gd" id="1_00f5c"]
-[ext_resource type="Resource" uid="uid://d27cc45uudvpl" path="res://rescources/bacteria_easy.tres" id="2_t5jqp"]
+[ext_resource type="Resource" uid="uid://d27cc45uudvpl" path="res://rescources/enemies/bacteria_easy.tres" id="2_t5jqp"]
 [ext_resource type="Texture2D" uid="uid://cfescbv4amdsr" path="res://assets/sprites/spritesheet.png" id="3_t5jqp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00f5c"]
